@@ -11,7 +11,7 @@ const Register = () => {
   const [password,setPassword]=useState("");
   const [confirmPassword,setConfirmPassword]=useState("");
   const [name,setName]=useState("");
-  const [role,setRole]=useState("")
+  const [role,setRole]=useState("User")
   const [phone,setPhone]=useState("");
   const dispatch=useDispatch()
   const navigateTo=useNavigate()
