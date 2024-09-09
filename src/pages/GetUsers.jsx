@@ -8,19 +8,10 @@ const GetUsers = () => {
 
     const dispatch=useDispatch();
     const navigateTo=useNavigate();
-    const { isAuthenticated } = useSelector(
-        (state) => state.user
-      );
+    
     const {users,error,message,loading}=useSelector((state)=>state.getAllUsers)
     useEffect(()=>{
-        if(!isAuthenticated){
-        navigateTo("/");
-        }
-        else{
-              dispatch(getAllUsers());
-        }
-
-      
+          dispatch(getAllUsers()); 
     },[])
 
     useEffect(()=>{
@@ -29,7 +20,6 @@ const GetUsers = () => {
           dispatch(clearAllGetUserErrors());
         }
         
-
         if(message){
           toast.success(message);
           dispatch(resetGetUserSlice());
