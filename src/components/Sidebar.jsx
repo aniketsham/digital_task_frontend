@@ -11,8 +11,7 @@ const Sidebar = () => {
 
       const isAdmin=useState(user.role==="Admin")
     const dispatch=useDispatch()
-
-    console.log(isAuthenticated)
+   const navigateTo=useNavigate()
 
     const handleLogout=()=>{
         dispatch(logout());
