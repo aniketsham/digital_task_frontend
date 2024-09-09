@@ -20,9 +20,9 @@ function App() {
   })
   return (
     <>
-     <Sidebar/>
+     
       <Router>
-      
+      <Sidebar/>
         <Routes>
         <Route path='/' element={<Login/>} />
         <Route path="/register" element={<Register/>}/>
