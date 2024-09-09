@@ -13,7 +13,14 @@ const GetUsers = () => {
       );
     const {users,error,message,loading}=useSelector((state)=>state.getAllUsers)
     useEffect(()=>{
-        dispatch(getAllUsers())
+        if(!isAuthenticated){
+        navigateTo("/");
+        }
+        else{
+              dispatch(getAllUsers());
+        }
+
+      
     },[])
 
     useEffect(()=>{
@@ -21,9 +28,7 @@ const GetUsers = () => {
           toast.error(error)
           dispatch(clearAllGetUserErrors());
         }
-        if(!isAuthenticated){
-        navigateTo("/");
-        }
+        
 
         if(message){
           toast.success(message);
