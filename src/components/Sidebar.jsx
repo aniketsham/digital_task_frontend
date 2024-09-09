@@ -9,9 +9,9 @@ const Sidebar = () => {
         (state) => state.user
       );
 
-      const isAdmin=useState(user.role==="Admin")
-    const dispatch=useDispatch()
-   const navigateTo=useNavigate()
+      const isAdmin=useState(user.role==="Admin");
+    const dispatch=useDispatch();
+   const navigateTo=useNavigate();
 
     const handleLogout=()=>{
         dispatch(logout());
