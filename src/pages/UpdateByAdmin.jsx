@@ -42,6 +42,7 @@ const UpdateByAdmin = () => {
     
   return (
     <div>
+        {
         loading ? ( <div className='flex items-center justify-center h-screen'>
 
         <div role="status">
@@ -82,6 +83,7 @@ const UpdateByAdmin = () => {
 </form>
 )
 
+        }
     </div>
   )
 }
