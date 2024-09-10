@@ -9,7 +9,7 @@ const Sidebar = () => {
         (state) => state.user
       );
 
-      const isAdmin=useState(user.role==="Admin");
+      const isAdmin=useState(user.role==="Admin")[0];
     const dispatch=useDispatch();
    const navigateTo=useNavigate();
 
