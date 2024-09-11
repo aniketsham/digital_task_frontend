@@ -8,11 +8,11 @@ const GetUsers = () => {
 
     const dispatch=useDispatch();
     const navigateTo=useNavigate();
-    
-    const {users,error,message,loading}=useSelector((state)=>state.getAllUsers);
-    const {isAuthenticated,user}=useSelector(
+    const {loading,isAuthenticated,user}=useSelector(
         (state)=>state.user
       );
+    const {users,error,message}=useSelector((state)=>state.getAllUsers);
+    
     useEffect(()=>{
           dispatch(getAllUsers()); 
     },[])
@@ -22,13 +22,15 @@ const GetUsers = () => {
           toast.error(error)
           dispatch(clearAllGetUserErrors());
         }
-        if (isAuthenticated) {
-            navigateTo("/updateProfile");
-          }
-        if(user.role!=="Admin"){
-            toast.error("Admin access only.");
-            navigateTo("/updateProfile");
-  
+        if(!loading && !isAuthenticated){
+            navigateTo("/")
+        }
+        if(!loading && user.role!=="Admin"){
+            console.log(user)
+            toast.error("Admin access only");
+            navigateTo("/")
+            
+
         }
         
         if(message){
